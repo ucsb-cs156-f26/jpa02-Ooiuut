@@ -49,6 +49,19 @@ public class TeamTest {
     }
 
     @Test
+    public void equals_different_name() {
+    Team other = new Team("different-team");
+    assertFalse(team.equals(other));
+    }
+
+    @Test
+    public void equals_same_name_different_members() {
+    Team other = new Team("test-team");
+    other.addMember("waikiki");
+    assertFalse(team.equals(other));
+    }
+
+    @Test
     public void hashtest(){
        Team t1 = new Team();
     t1.setName("foo");
